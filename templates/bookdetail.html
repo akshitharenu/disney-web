@@ -1,0 +1,143 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,100;1,200;1,900&display=swap');
+
+
+
+body{
+  width:100%;
+  height:100vh;
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-image:url(https://images.unsplash.com/photo-1558470570-c9a5a5ade867?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+  background-size:cover;
+  background-repeat:no-repeat;
+  font-family: 'Prompt', sans-serif;
+}
+div{
+  position:absolute;
+  display:flex;
+  width:60%;
+  height:70%;
+  background-color: #dadee6d9;
+  border-radius:10px;
+  outline: 2px solid #f49d1a7d;
+  outline-offset: -15px;
+  box-shadow:  20px 10px 40px #ffffff,
+             -15px -10px 40px #ffffff;
+}
+
+#text{
+  margin:0 0 0 3rem;
+  display:flex;
+  padding-top:2rem;
+  width:30%;
+  height:90%;
+  align-self:center;
+  flex-direction:column;
+  flex-grow:.7;
+  align-items:center;
+  
+}
+h1{
+   text-shadow: 1px 2px 2px #FFffff;
+  color: #d61c4ebd;
+  width:70%;
+}
+p{
+  width:70%;
+  height:60%;
+  display:flex;
+}
+#pic{
+  position:relative;
+  display:flex;
+  transform:rotatez(25deg) scale(130%);
+  filter: drop-shadow(30px 10px 14px rgba(82, 80, 80, 0.655));
+}
+@media all and (max-width: 850px){
+  #pic{
+    display:flex;
+    align-self:center;
+    left:40%;
+    transform: scale(.5) rotatez(25deg);
+  }
+  #text{
+    font-size:smaller;
+    position:absolute;
+    margin: 0 1.5rem;
+    display:flex;
+    height: 80%;
+    width:60%;
+  }
+}
+
+@media all and (max-width: 550px){
+  div{
+    width:90%;
+  }
+  #pic{    
+    display:flex;
+    align-self:center;
+    left:40%;
+    transform: scale(.4) rotatez(25deg);
+  }
+}
+
+@media all and (max-width:410px){
+  div{
+    
+    width:80%;
+    height:70%; 
+    justify-cotent:center;
+  }
+  #text{
+    padding:0;
+    text-align:center;
+    display:flex;
+    margin:.5rem auto;
+    width:100%;
+    font-size:x-small;
+  }
+  h1{
+    margin:0;
+  }
+  p{
+    margin:0;
+    width:70%;
+    height:40%;
+  }
+  #pic{
+    dislay:flex;
+    align-self:flex-start;
+    left:5%;
+    top:-30%;
+    transform: scale(35%) rotatez(35deg);
+  }
+}
+
+@media all and (max-width:310px){
+  div{
+    display:flex;
+  justify-self: stretch;
+  }
+  #text{
+    margin.
+        dislay:block;
+  }
+  #pic{
+    dislay:flex;
+    justify-self: center;
+    transform: scale(25%) rotatez(35deg);
+  }
+}
+</style>
+<div>
+  <span id="text">
+    <h1>{{booklist.title}}</h1>
+    <p>{{booklist.desc}}</p>
+  </span>
+  <img id="pic" src="{{booklist.image.url}}" alt="" width="200" height="250">
+</div>

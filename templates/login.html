@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Niconne&display=swap" rel="stylesheet">
+
+    <title>Login Form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5298bac0-b8bf-4c80-af67-725c1272dbb0/ddcfg2g-491b2ad1-4733-435b-b4fa-e5f532c0bc91.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUyOThiYWMwLWI4YmYtNGM4MC1hZjY3LTcyNWMxMjcyZGJiMFwvZGRjZmcyZy00OTFiMmFkMS00NzMzLTQzNWItYjRmYS1lNWY1MzJjMGJjOTEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.7XasUAb1Kis1gGeDcPmMUXyLP-DYWY8fRprc47rQj7k');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .container {
+            height: 400px;
+            width: 650px;
+            box-shadow: 0px 30px 40px black;
+            display: flex;
+            border-radius: 10px;
+        }
+        
+        .image {
+            flex: 50%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_40/1487941/elsa-frozen-today-square-190930.jpg');
+            background-size: cover;
+            text-align: center;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .image h1 {
+            margin-top: 50%;
+            padding-left: 20px;
+            padding-right: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        span {
+            color: chartreuse;
+        }
+        
+        .content {
+            flex: 50%;
+            background-color: white;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .content h1 {
+            padding: 40px;
+            padding-top: 30px;
+            font-family: 'Niconne', cursive;
+            font-size: 40px;
+            color: #c446c9;
+        }
+        
+        #txt {
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            background-color: rgba(156, 77, 156, 0.3);
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: small;
+            font-family: 'Montserrat', sans-serif;
+            color: #aa38a4;
+        }
+        
+        label {
+            font-weight: bold;
+            font-size: small;
+        }
+        
+        #txt:focus {
+            outline: none;
+        }
+        
+        .fp {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: small;
+            transition: 0.3s;
+        }
+        
+        .fp:hover {
+            color: #c446c9;
+        }
+        
+        button {
+            padding: 10px 40px;
+            margin-top: 20px;
+            border: none;
+            background: linear-gradient(to right, #4568DC, #B06AB3);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        
+        button:hover {
+            transform: scale(1.2);
+        }
+        
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+      
+        <div class="image">
+            <h1>Welcome To <span>Disney</span></h1>
+        </div>
+        <div class="content">
+            <h1>Login</h1>
+            <div class="form-group">
+            <form method="POST">
+            {% csrf_token %}
+                <label for="">UserName</label>
+                <br>
+                <input type="text" class="form-control" name="email" id="txt" aria-describedby="helpId" placeholder="UserName">
+
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <br>
+                <input type="password" class="form-control" name="password" id="txt" placeholder="Password">
+            </div>
+    
+            <br>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        </div>
+    </div>
+    <div class="middle">
+        <div id="login">
+        </div>
+        <div class="text-center text-danger">
+         {% if messages %}
+        {%for msg in messages %}
+        <b>{{msg}}</b>
+        {% endfor %}
+        {% endif %}
+        </div>
+</body>
+
+</html>

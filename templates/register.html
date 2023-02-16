@@ -1,0 +1,202 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+body {
+  /* background: linear-gradient(135deg, #d9e3e4, #fcb2bf); */
+  background-image: url(https://wallpaperaccess.com/full/1305950.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5em;
+}
+.wrap {
+  background: url("https://i.pinimg.com/736x/19/c8/24/19c824e17648354779008837e679cd80--tangled-movie-tangled-.jpg");
+  background-position: left top;
+  margin: 0;
+  padding: 0;
+ 
+}
+.container {
+  width: 22em;
+  padding: 0;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #5ea3a9, #f97c92);
+  color: #fff;
+  box-shadow: 40px 40px 10px #222;
+}
+
+#logo {
+  padding: 2em;
+  font-size: 3em;
+  text-shadow: 5px 2px 3px #222;
+  font-family: 'Abril Fatface', cursive;
+}
+
+#login {
+  margin: 5em auto 1.5em;
+  font-size: 0.9em;
+  padding: 1em;
+}
+
+#email, #password,#name,#phone {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #88f1fa;
+  width: 85%;
+  margin-bottom: 1.2em;
+  padding-bottom: 10px;
+  color: #eee;
+}
+#email::placeholder, #password::placeholder , #name::placeholder ,
+ #phone::placeholder {
+  color: #eee;
+  font-size: 0.95em;
+}
+
+#email:focus, #password:focus {
+  outline: none;
+  color: #eee;
+}
+
+.register {
+  display: block;
+  text-align: center;
+  border: 2px solid #88f1fa;
+  width: 80%;
+  margin: auto;
+  border-radius: 50px;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(189, 34, 181);
+  font-weight: bold;
+}
+
+.login-link {
+  text-align: center;
+  display: block;
+  color: #fff;
+  padding-bottom: 2em;
+  text-transform: uppercase;
+  padding-top: 1em;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.register:hover {
+  background: rgba(136, 241, 250, 1);
+  text-decoration: none;
+}
+
+.register:focus, .login-link:focus {
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 5em;
+}
+
+footer a {
+  text-decoration: none;
+  color: #5ea3a9;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: #aaa;
+}
+</style>
+  <div class="container">
+    <!-- <div class="text-center text-danger">
+      {% if messages %}
+     {%for msg in messages %}
+     <b>{{msg}}</b>
+     {% endfor %}
+     {% endif %}
+     </div> -->
+    <div class="wrap">
+   <h1 class="text-center" style="text-align: center;" id="logo">SIGNUP</h1>
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <input type="text" placeholder="NAME" name="name" id="name">
+        <input type="tel" placeholder="PHONE" name="phone" id="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+  
+      <input type="email" placeholder="EMAIL" name="email" id="email">
+      <input type="password" placeholder="PASSWORD" name="password" id="password" >
+      <button type="submit" class="register">Register</button>
+    </form>
+   
+    <a href="{% url 'login' %}" class="login-link">Already a memeber? Log in</a>
+    {% if messages %}
+    {%for msg in messages %}
+    <b>{{msg}}</b>
+    {% endfor %}
+    {% endif %}
+  </div>
+  </div>
+  <footer id="main-footer">Made by 
+    <a href="https://www.linkedin.com/in/trang-tran0909/" target="_blank">Trang Tran</a>
+    <br> Inspired by  <a href="https://s-media-cache-ak0.pinimg.com/originals/75/e9/b5/75e9b5a2b90f75f4f7f0c403315f3c78.png" target="_blank">this cool UI</a><br>Photo source <a href="http://s50.radikal.ru/i128/1005/5d/973fd5128c4f.png" target="_blank">here</a>
+   <footer>
+    <script>
+        var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+          document.getElementById("message").style.display = "block";
+        }
+        
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+          document.getElementById("message").style.display = "none";
+        }
+        
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if(myInput.value.match(lowerCaseLetters)) {  
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+          }
+          
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if(myInput.value.match(upperCaseLetters)) {  
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+        
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if(myInput.value.match(numbers)) {  
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+          
+          // Validate length
+          if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        }
+        </script>
